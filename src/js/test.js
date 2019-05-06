@@ -1,0 +1,1 @@
+const test = props => console.log(`This is a simple arrow function ${props}`)

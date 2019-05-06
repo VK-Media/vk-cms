@@ -1,0 +1,30 @@
+{
+  "name": "vk-cms",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"node-sass ./src/scss/main.scss ./public/css/main.css && node-sass -w ./src/scss/main.scss ./public/css/main.css\" \"npm run build:babel -- --watch\" \"nodemon ./server.js\"",
+    "start": "node server.js",
+    "build": "rm -rf ./dist && npm run build:babel && npm run build:sass",
+    "build:babel": "babel src --out-dir public",
+    "build:sass": "node-sass --output-style compressed ./src/scss/main.scss ./public/css/main.css"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "i18n": "^0.8.3",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "concurrently": "^4.1.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.0"
+  }
+}
