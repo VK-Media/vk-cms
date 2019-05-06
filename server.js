@@ -6,6 +6,7 @@ const logger = require('morgan')
 const path = require('path')
 const i18n = require('i18n')
 const http = require('http')
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -21,6 +22,9 @@ i18n.configure({
     locales: ['en', 'da'],
     directory: path.join(__dirname, 'locales')
 })
+
+const url = 'mongodb+srv://codeUser:Dihk9KlcDUeRvSTb@development-vjgii.mongodb.net/test?retryWrites=true';
+mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(i18n.init)
 app.use(logger('dev'))
